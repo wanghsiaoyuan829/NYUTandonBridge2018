@@ -1,6 +1,6 @@
 #  NYU Tandon School of Engineering - Bridge to CS Spring 2018
 
-[NYU Tandon School of Engineering Logo](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/nyu_logo.jpg "NYU Tandon School of Engineering Logo Bridge to CS Spring 2018")
+![NYU Tandon School of Engineering Logo](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/nyu_logo.jpg "NYU Tandon School of Engineering Logo Bridge to CS Spring 2018")
 
 Want to know more about my background and/or collaborate? Let's connect through LinkedIn!
 [Nam's LinkedIn](https://www.linkedin.com/in/namhnguyen1337)
