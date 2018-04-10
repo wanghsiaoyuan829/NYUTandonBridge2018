@@ -26,35 +26,35 @@ thread concurrency, deadlocks, and memory management.
 
 ## Topics Covered in the Program:
 
-● Fundamentals of system hardware
-● Number Systems
-● Compilation and Execution process
-● Data types and Expressions
-● Branching statements
-● Iterative Statements
-● Propositional logic
-● Sets basics
-● Mathematical functions
-● Basic counting and combinatorics
-● Intro to probability
-● The Pigeonhole Principle
-● Intro to algorithm analysis and Order of growth
-● Coding functions, Abstraction and Runtime stack
-● Arrays
-● Strings
-● Pointers and Dynamic allocation
-● Induction
-● Recursion
-● Searching and Sorting
-● Object Oriented Programming concepts
-● File Processing
-● Linked Lists
-● Stacks and Queues
-● Trees and Binary Search trees
-● Computer Organization
-● Assembly language basics
-● Intro to OS Concepts
-● Processes & Threads
-● Thread concurrency and deadlocks
-● Memory Management
+* Fundamentals of system hardware
+* Number Systems
+* Compilation and Execution process
+* Data types and Expressions
+* Branching statements
+* Iterative Statements
+* Propositional logic
+* Sets basics
+* Mathematical functions
+* Basic counting and combinatorics
+* Intro to probability
+* The Pigeonhole Principle
+* Intro to algorithm analysis and Order of growth
+* Coding functions, Abstraction and Runtime stack
+* Arrays
+* Strings
+* Pointers and Dynamic allocation
+* Induction
+* Recursion
+* Searching and Sorting
+* Object Oriented Programming concepts
+* File Processing
+* Linked Lists
+* Stacks and Queues
+* Trees and Binary Search trees
+* Computer Organization
+* Assembly language basics
+* Intro to OS Concepts
+* Processes & Threads
+* Thread concurrency and deadlocks
+* Memory Management
 
