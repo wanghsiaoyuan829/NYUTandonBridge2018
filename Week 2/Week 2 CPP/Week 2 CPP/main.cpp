@@ -17,6 +17,13 @@ int main()
     int num2; // will hold the second input
     int sum;  // will hold the sum
     
+    // cout = c output (print)
+    // << = continue on
+    // endl = end line (line break)
+    // ; end of instruction
+    // cin = c input
+    // >> = into (whatever user input into num1 and num 2)
+    
     cout<<"Please enter two numbers separated by a space:"<<endl;
     cin>>num1>>num2;
     

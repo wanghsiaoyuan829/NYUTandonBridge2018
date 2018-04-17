@@ -12,7 +12,7 @@
     => CPU then uses a program counter to point at the bytes meant to be executed 
     => runs a fetch, decode, and execute cycle over and over again until the program ends
 
-![Process of executing a program]()
+![Process of executing a program](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/Week%202/Note%20Images/process%20of%20executing%20a%20program.png)
 
 ### Compilation
     Definition: "Build process" translating high-level language to machine language
