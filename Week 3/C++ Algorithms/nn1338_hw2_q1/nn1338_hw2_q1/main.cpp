@@ -34,16 +34,16 @@ int main() {
     cout<<"Please enter number of coins:"<<endl;
     
     // Store user input
-    cout<<"# of quarters: "<<endl;
+    cout<<"# of quarters: ";
     cin>>numOfQuarters;
     
-    cout<<"# of dimes: "<<endl;
+    cout<<"# of dimes: ";
     cin>>numOfDimes;
     
-    cout<<"# of nickles: "<<endl;
+    cout<<"# of nickles: ";
     cin>>numOfNickles;
     
-    cout<<"# of pennies: "<<endl;
+    cout<<"# of pennies: ";
     cin>>numOfPennies;
     
     // Convert cents into relative amount
