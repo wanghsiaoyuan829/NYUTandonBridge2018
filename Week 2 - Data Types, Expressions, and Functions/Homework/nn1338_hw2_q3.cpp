@@ -30,6 +30,9 @@
 #include <iostream>
 using namespace std;
 
+const int MINUTES_TO_HOURS = 60;
+const int HOURS_TO_DAYS = 24;
+
 int main() {
     
     int daysJohnWorked, hoursJohnWorked, minutesJohnWorked;
@@ -71,18 +74,18 @@ int main() {
     totalMinutesWorked = minutesJohnWorked + minutesBillWorked; // Add total minutes John and Bill worked
     
     // If total amount of minutes added together is 121 minutes => 2 hours and 1 minute
-    minutesRemaining = totalMinutesWorked % 60; // Find the remaining minutes if the added minutes together are greater than 60 minutes because 60 minutes = 1 hour
-    minutesCarryOver = totalMinutesWorked / 60; // Find how many hours gets carried over from total minutes from John and Bill
+    minutesRemaining = totalMinutesWorked % MINUTES_TO_HOURS; // Find the remaining minutes if the added minutes together are greater than 60 minutes because 60 minutes = 1 hour
+    minutesCarryOver = totalMinutesWorked / MINUTES_TO_HOURS; // Find how many hours gets carried over from total minutes from John and Bill
     
     totalHoursWorked = hoursJohnWorked + hoursBillWorked + minutesCarryOver; // Total hours work also include both hours work and the minutesCarryOver
     
-    hoursRemaining = totalHoursWorked % 24; // Find the remaining hours leftover if the hours are carried over or not
-    hoursCarryOver = totalHoursWorked / 24; // Find if any hours are carried over to days because 24 hours = 1 day
+    hoursRemaining = totalHoursWorked % HOURS_TO_DAYS; // Find the remaining hours leftover if the hours are carried over or not
+    hoursCarryOver = totalHoursWorked / HOURS_TO_DAYS; // Find if any hours are carried over to days because 24 hours = 1 day
     
     totalDaysWorked = daysJohnWorked + daysBillWorked + hoursCarryOver; // Find total amount of days worked by adding days worked and hours carry over (>24)
     
     // Print out
-    cout<<"The total time both of them worked together is: "<<totalDaysWorked<<" days, "<<hoursRemaining<<" hours and "<<minutesRemaining<<" minutes.";
+    cout<<"The total time both of them worked together is: "<<totalDaysWorked<<" days, "<<hoursRemaining<<" hours and "<<minutesRemaining<<" minutes."<<endl;
     
     return 0;
 }

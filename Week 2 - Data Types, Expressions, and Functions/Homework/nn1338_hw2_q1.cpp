@@ -20,10 +20,15 @@
  # of pennies: 17
  The total is 4 dollars and 37 cents
  
-*/
+ */
 
 #include <iostream>
 using namespace std;
+
+const int CENTS_TO_DOLLAR = 100;
+const int VALUE_OF_A_QUARTER = 25;
+const int VALUE_OF_A_DIME = 10;
+const int VALUE_OF_A_NICKEL = 5;
 
 int main() {
     
@@ -47,19 +52,19 @@ int main() {
     cin>>numOfPennies;
     
     // Convert cents into relative amount
-    amountInQuarters = numOfQuarters * 25;
-    amountInDimes = numOfDimes * 10;
-    amountInNickles = numOfNickles * 5;
+    amountInQuarters = numOfQuarters * VALUE_OF_A_QUARTER;
+    amountInDimes = numOfDimes * VALUE_OF_A_DIME;
+    amountInNickles = numOfNickles * VALUE_OF_A_NICKEL;
     amountInPennies = numOfPennies;
     
     // Add all converted amount in cents to get the final amount in cents
     finalAmountInCents = amountInQuarters + amountInDimes + amountInNickles + amountInPennies;
     
     // 100 cents are in 1 dollar and any remainder amount of cents will get stored in centsLeftOver
-    centsLeftover = finalAmountInCents % 100;
+    centsLeftover = finalAmountInCents % CENTS_TO_DOLLAR;
     
     // 100 cents are in 1 dollar and the divisible amount gets stored in final dollar amount
-    finalDollarAmount = finalAmountInCents / 100;
+    finalDollarAmount = finalAmountInCents / CENTS_TO_DOLLAR;
     
     cout<<"The total is "<<finalDollarAmount<<" dollars and "<<centsLeftover<<" cents"<<endl;
     

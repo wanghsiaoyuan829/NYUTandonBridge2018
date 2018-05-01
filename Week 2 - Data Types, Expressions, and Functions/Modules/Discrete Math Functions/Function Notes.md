@@ -23,6 +23,18 @@
     a is the preimage of b
     Range of f = set of all images of elements of A
     
+### Equal Functions
+    Two functions are equal when they have the same domain, have the same codomain, and map each element of their common domain to the same element in their common codomain.
+    
+### One-to-One Functions
+    Definition: Some functions never assign the same value to two different domain elements. These functions are said to be one-to-one.
+    
+        We can express that f is one-to-one using quantifiers as ∀a∀b(f (a) = f (b) → a = b) or equivalently ∀a∀b(a ̸= b → f (a) ̸= f (b))
 
+### Onto Functions (Surjection)
+    Definition: For some functions the range and the codomain are equal. That is, every member of the codomain is the image of some element of the domain. Functions with this property are called onto functions.
+
+    A function f from A to B is called onto, or a surjection, if and only if for every element b∈B there is an element a∈A with f(a)=b. A function f is called surjective if it is onto.
     
-    
+### Bijection Function
+    Definition: Both one-to-one and onto. We also say that such a function is bijective.

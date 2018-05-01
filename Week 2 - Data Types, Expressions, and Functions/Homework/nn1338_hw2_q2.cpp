@@ -28,6 +28,12 @@
 #include <iostream>
 using namespace std;
 
+const int CENTS_TO_DOLLAR = 100;
+const int VALUE_OF_A_QUARTER = 25;
+const int VALUE_OF_A_DIME = 10;
+const int VALUE_OF_A_NICKEL = 5;
+const int VALUE_OF_A_PENNY = 1;
+
 int main() {
     
     int dollarInputAmount, centInputAmount;
@@ -40,22 +46,22 @@ int main() {
     cout<<dollarInputAmount<<" dollars and "<<centInputAmount<<" cents are:"<<endl;
     
     // Convert dollar(s) to cent(s)
-    dollarToCent = dollarInputAmount * 100;
+    dollarToCent = dollarInputAmount * CENTS_TO_DOLLAR;
     
     // Get total cent amount to be able to calculate minimum coin amounts
     totalCentAmount = dollarToCent + centInputAmount;
     
     // To get minimum coin amounts, start off with the biggest coin (quarter) and divide total cent amount
-    minQuarterAmount = totalCentAmount / 25;
+    minQuarterAmount = totalCentAmount / VALUE_OF_A_QUARTER;
     
     // After dividing it by the quarter, based on sequential flow, the next biggest coin is the dime
     // Take the amount leftover  and divide by 10 to find how many times go into the remaining amount
-    minDimeAmount = (totalCentAmount - minQuarterAmount * 25) / 10;
+    minDimeAmount = (totalCentAmount - minQuarterAmount * VALUE_OF_A_QUARTER) / VALUE_OF_A_DIME;
     
     // Continue this idea with nickels and pennies
-    minNickelAmount = (totalCentAmount - minQuarterAmount * 25 - minDimeAmount * 10) / 5;
+    minNickelAmount = (totalCentAmount - minQuarterAmount * VALUE_OF_A_QUARTER - minDimeAmount * VALUE_OF_A_DIME) / VALUE_OF_A_NICKEL;
     
-    minPennyAmount = (totalCentAmount - minQuarterAmount * 25 - minDimeAmount * 10 - minNickelAmount * 5) / 1;
+    minPennyAmount = (totalCentAmount - minQuarterAmount * VALUE_OF_A_QUARTER - minDimeAmount * VALUE_OF_A_DIME - minNickelAmount * VALUE_OF_A_NICKEL) / VALUE_OF_A_PENNY;
     
     // Print-out of the coins
     cout<<minQuarterAmount<<" quarters, "<<minDimeAmount<<" dimes, "<<minNickelAmount<<" nickels";
