@@ -43,12 +43,14 @@ const double CLUB_MEMBER_DISCOUNT = .1;
 
 int main() {
     
+    // Prices for items may be in cents, so initiate variables with data type double.
     double firstItemPrice, secondItemPrice;
     string hasClubMemberCard;
     double taxRate, baseTotalItemPrices;
     double bogoDiscount, memberDiscountWithBogo, priceAfterAllDiscounts;
     double finalPrice;
     
+    // Gather user input
     cout<<"Enter price of first item: ";
     cin>>firstItemPrice;
     
@@ -61,29 +63,36 @@ int main() {
     cout<<"Enter tax rate, e.g. 5.5 for 5.5% tax: ";
     cin>>taxRate;
     
+    // Total price of two items before tax & discounts
     baseTotalItemPrices = firstItemPrice + secondItemPrice;
     
+    // Buy one get one half off with the lower item price being halved.
     if (firstItemPrice < secondItemPrice)
         bogoDiscount = secondItemPrice + firstItemPrice / 2;
-    else if (firstItemPrice > secondItemPrice)
-        bogoDiscount = firstItemPrice + secondItemPrice / 2;
     else
-        bogoDiscount = firstItemPrice + secondItemPrice;
+        // This condition gets accounts for if the two items are equal in price as well.
+        bogoDiscount = firstItemPrice + secondItemPrice / 2;
     
+    // Membership discount is constant
     memberDiscountWithBogo = bogoDiscount * CLUB_MEMBER_DISCOUNT;
+    
+    // Stores bogo and member discounts together
     priceAfterAllDiscounts = bogoDiscount - memberDiscountWithBogo;
     
-    cout<<priceAfterAllDiscounts<<" is price after discounts"<<endl;
-    
+    // Captures the logic if user types in upper or lower case Y or N for being a club member
+    // If the user enters Y or y, then the membership discount gets applied
     if (hasClubMemberCard == "Y" || hasClubMemberCard == "y")
         finalPrice = priceAfterAllDiscounts + priceAfterAllDiscounts * (taxRate / 100);
+    // If the user enters N or n, then no membership discount gets applied
     else if (hasClubMemberCard == "N" || hasClubMemberCard == "n")
         finalPrice = bogoDiscount + bogoDiscount * (taxRate / 100);
+    // Captures edge case if user enters an input that is not (Y/N) and exits out of the program
     else {
         cout<<"Invalid input. Please enter 'Y' or 'N' if you have a member card."<<endl;
         return 0;
     }
     
+    // Output results to user
     cout<<"Base price: "<<baseTotalItemPrices<<endl;
     
     cout<<"Price after discounts: "<<priceAfterAllDiscounts<<endl;
