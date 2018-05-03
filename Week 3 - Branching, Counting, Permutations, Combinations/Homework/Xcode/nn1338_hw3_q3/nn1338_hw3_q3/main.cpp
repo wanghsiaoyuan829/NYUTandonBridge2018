@@ -54,11 +54,32 @@ using namespace std;
 int main() {
     
     int valueA, valueB, valueC;
+    string predictedNumOfSolution;
+    double quadraticSolution;
     
-    cout<<"Please enter value of a: "<<valueA<<endl;
-    cout<<"Please enter value of b: "<<valueB<<endl;
-    cout<<"Please enter value of c: "<<valueC<<endl;
-    cout<<"This equation has a single real solution "<<"x=-2.0"<<endl;
+    cout<<"Please enter value of a: ";
+    cin>>valueA;
+    
+    cout<<"Please enter value of b: ";
+    cin>>valueB;
+    
+    cout<<"Please enter value of c: ";
+    cin>>valueC;
+    
+    quadraticSolution = (-valueB + sqrt(valueB * valueB - 4 * valueA * valueC)) / (2 * valueA);
+    
+    if (valueA == 0 && valueB == 0 && valueC == 0)
+        predictedNumOfSolution = "infinite number of solutions";
+    else if (valueA == 0 && valueB == 0 && valueC > 0 && quadraticSolution == 0)
+        predictedNumOfSolution = "no solution";
+    else if (valueA == 1 && valueB == 0 && valueC > 0 && quadraticSolution == 0)
+        predictedNumOfSolution = "no real solution";
+    else if (valueA > 0 && valueB > 0 && valueC > 0)
+        predictedNumOfSolution = "one real solution";
+    else if (valueA == 1 && valueB == 0 && valueC > 0)
+        predictedNumOfSolution = "two real solutions";
+    
+    cout<<"This equation has "<<predictedNumOfSolution<<" x="<<quadraticSolution<<endl;
     
     return 0;
 }
