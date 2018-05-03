@@ -7,41 +7,28 @@
 //
 
 #include <iostream>
+#include <cmath>
+
 using namespace std;
+
+const double POUND_TO_KILOGRAM = 0.453592;
+const double INCH_TO_METER = 0.0254;
 
 int main() {
     
-    int num1, num2;
-    float num3, num4;
-    double num5, num6;
-    double num7, num8;
-
-    num1 = 1;
-    num2 = 1.01;
-    num3 = 1;
-    num4 = 1.01;
-    num5 = 1;
-    num6 = 1.01;
-    num7 = 22.5;
-    num8 = 8.25/100;
+    double weightInPounds, heightInInches;
+    double bmiValue;
+    string weightStatus;
     
-    cout<<num7<<endl;
-    cout<<num8<<endl;
+    cout<<"Please enter weight (in pounds): ";
+    cin>>weightInPounds;
     
-    cout<<num7 + num7*num8<<endl;
+    cout<<"Please enter height (in inches): ";
+    cin>>heightInInches;
     
-//    cout<<num1<<endl;
-//    cout<<num2<<endl;
-//    cout<<num1+num3<<endl;
-//
-//    cout<<num3<<endl;
-//    cout<<num4<<endl;
-//    cout<<num3+num4<<endl;
-//
-//    cout<<(double)num5<<endl;
-//    cout<<num6<<endl;
-//    cout<<num5+num6<<endl;
+    bmiValue = (weightInPounds * POUND_TO_KILOGRAM) / exp((heightInInches * INCH_TO_METER));
     
-
+//    cout<<bmiValue<<endl;
+    cout<<22.6796 / (1.778 * 1.778)<<endl;
     return 0;
 }

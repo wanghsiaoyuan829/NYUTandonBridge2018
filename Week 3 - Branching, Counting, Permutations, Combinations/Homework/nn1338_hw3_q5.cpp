@@ -1,5 +1,13 @@
 //
 //  main.cpp
+//  nn1338_hw3_q4
+//
+//  Created by NomNomNam on 5/3/18.
+//  Copyright © 2018 NamHNguyen NYU Tandon School of Engineering Bridge 2018 Program. All rights reserved.
+//
+
+//
+//  main.cpp
 //  nn1338_hw3_q5
 //
 //  Created by NomNomNam on 5/3/18.
