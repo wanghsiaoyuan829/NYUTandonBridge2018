@@ -89,9 +89,39 @@ int main() {
         totalCallMinuteCharge = totalMinutes * CALLRATE_WEEKENDS;
     }
     
-    // Output day of the week, total call minutes, and charges to the user. 
+    // Output day of the week, total call minutes, and charges to the user.
     cout<<"Your total call minutes starting on "<<dayOfTheWeek<<" are "<<totalMinutes<<" minutes. You are charged $"<<totalCallMinuteCharge<<"."<<endl;
     
     
     return 0;
 }
+
+/*
+ Expected Output #1: Test Scenario on weekdays between hours
+ 15:30
+ 17:20
+ Mo
+ 110 minutes
+ $44 charge rate
+
+ Expected Output #2: Test Scenario on weekends
+ 19:30
+ 20:40
+ Su
+ 70 minutes
+ $10.5 charge rate
+ 
+ Expected Output #3: Test Scenario before 8am and after 8pm
+ 07:00
+ 09:00
+ Tu
+ 120 minutes
+ $39 charge rate
+ 
+ Expected Output #4: Test Scenario before and after midnight
+ 23:20
+ 00:30
+ We
+ 70 minutes
+ $17.5 charge rate
+*/
