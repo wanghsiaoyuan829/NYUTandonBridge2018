@@ -24,19 +24,21 @@
 */
 
 #include <iostream>
-#include <cmath>
-
 using namespace std;
+
+const double CALLRATE_BEFOREHOURS_WEEKDAYS = .25;
+const double CALLRATE_BETWEENHOURS_WEEKDAYS = .40;
+const double CALLRATE_WEEKENDS = .15;
 
 int main() {
     
     int startCallHour, startCallMinute;
     int endCallHour, endCallMinute;
+    int minutesBefore8, minutesAfter8;
     char colon;
     string dayOfTheWeek;
     string timeOfDay;
-    double callRateBetweenHoursWeekday, callRateBeforeHoursWeekday;
-    double callRateWeekend;
+    double chargesBefore8, chargesAfter8;
     int totalMinutes, totalHours;
     double totalCallMinuteCharge;
     
@@ -49,28 +51,46 @@ int main() {
     cout<<"Enter the day of the week you started the call (e.g. If Monday, enter 'Mo'. If Friday, enter 'Fr'.)"<<endl;
     cin>>dayOfTheWeek;
     
-    // Charge Rates for certain days of the week and time of the week
-    callRateBeforeHoursWeekday = .25;
-    callRateBetweenHoursWeekday = .40;
-    callRateWeekend = .15;
-
-    totalHours = endCallHour - startCallHour;
-    totalMinutes = totalHours * 60 + (endCallMinute - startCallMinute);
-    totalCallMinuteCharge = 0;
-    
-    // nested if else statement
-    if (dayOfTheWeek == "Mo" || dayOfTheWeek == "Tu" || dayOfTheWeek == "We" || dayOfTheWeek == "Th" || dayOfTheWeek == "Fr") {
-        if (startCallHour >= 8 && endCallHour <= 18) {
-            totalCallMinuteCharge = totalMinutes * .40;
-        } else {
-            // endCallHour = endCallHour + 24;
-            totalCallMinuteCharge = totalMinutes * .25;
-        }
+    // Captures an edge case where a customer calls at 23:20 until 00:30. In other words, before midnight and after midnight.
+    if (endCallHour < startCallHour) {
+        endCallHour += 24;
+        totalHours = endCallHour - startCallHour;
+        totalMinutes = totalHours * 60 + (endCallMinute - startCallMinute);
     } else {
-        totalCallMinuteCharge = totalMinutes * .15;
+        totalHours = endCallHour - startCallHour;
+        totalMinutes = totalHours * 60 + (endCallMinute - startCallMinute);
     }
     
-    cout<<"Your total call minutes starting on "<<dayOfTheWeek<<" are "<<totalMinutes<<" . You are charged "<<totalCallMinuteCharge<<endl;
+    minutesBefore8 = (8 - startCallHour) * 60;
+    minutesAfter8 = (endCallHour - 8) * 60;
+    chargesBefore8 = minutesBefore8 * CALLRATE_BEFOREHOURS_WEEKDAYS;
+    chargesAfter8 = minutesAfter8 * CALLRATE_BETWEENHOURS_WEEKDAYS;
+    
+    totalCallMinuteCharge = 0;
+    
+    // Captures the weekday cases
+    if (dayOfTheWeek == "Mo" || dayOfTheWeek == "Tu" || dayOfTheWeek == "We" || dayOfTheWeek == "Th" || dayOfTheWeek == "Fr") {
+        
+        // Nested if-else for call hour cases within the weekdays
+        // Calls from 08:00 to 18:00
+        if (startCallHour >= 8 && endCallHour <= 18) {
+            totalCallMinuteCharge = totalMinutes * CALLRATE_BETWEENHOURS_WEEKDAYS;
+            
+        // Calls before 08:00 charging a diff rate + calls after 08:00 with a diff rate
+        } else if (startCallHour < 8 && endCallHour >= 8){
+            totalCallMinuteCharge = chargesBefore8 + chargesAfter8;
+            
+        // Calls from 18:00 to 08:00
+        } else {
+            totalCallMinuteCharge = totalMinutes * CALLRATE_BEFOREHOURS_WEEKDAYS;
+        }
+    } else {
+        // Captures the weekend cases of Sa/Su charge rates
+        totalCallMinuteCharge = totalMinutes * CALLRATE_WEEKENDS;
+    }
+    
+    // Output day of the week, total call minutes, and charges to the user. 
+    cout<<"Your total call minutes starting on "<<dayOfTheWeek<<" are "<<totalMinutes<<" minutes. You are charged $"<<totalCallMinuteCharge<<"."<<endl;
     
     
     return 0;
