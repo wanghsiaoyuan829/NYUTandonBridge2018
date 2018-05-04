@@ -57,7 +57,9 @@ int main() {
     
     // Formula for BMI is weight in KG / height in meter squared
     bmiValue = convertedPoundsToKilogram / pow(convertedInchesToMeter, 2);
-
+    
+    cout<<bmiValue<<endl;
+    
     // Ranges of weight status for BMI ranges
     if (bmiValue < 18.5)
         weightStatus = "Underweight";
