@@ -92,6 +92,7 @@ int main() {
     // Output day of the week, total call minutes, and charges to the user.
     cout<<"Your total call minutes starting on "<<dayOfTheWeek<<" are "<<totalMinutes<<" minutes. You are charged $"<<totalCallMinuteCharge<<"."<<endl;
     
+    
     return 0;
 }
 
