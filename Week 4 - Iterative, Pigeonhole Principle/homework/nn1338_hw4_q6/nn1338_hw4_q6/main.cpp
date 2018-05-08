@@ -1,19 +1,15 @@
 //
 //  main.cpp
-//  playground
+//  nn1338_hw4_q6
 //
-//  Created by NomNomNam on 5/2/18.
+//  Created by NomNomNam on 5/6/18.
 //  Copyright © 2018 NamHNguyen NYU Tandon School of Engineering Bridge 2018 Program. All rights reserved.
 //
 
 #include <iostream>
-#include <string>
 
-using namespace std;
-
-int main() {
-    
-    cout<<std::string(4, '!')<<endl;
-    
+int main(int argc, const char * argv[]) {
+    // insert code here...
+    std::cout << "Hello, World!\n";
     return 0;
 }
