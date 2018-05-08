@@ -45,7 +45,8 @@ int main() {
     
     int currElement;
     int count;
-    double lengthOfSequence, numSequence, result, geometricMean;
+    double lengthOfSequence, numSequence;
+    double result, geometricMean;
     bool seenEndOfSeq;
     
     cout<<"section a"<<endl;
@@ -59,16 +60,39 @@ int main() {
     geometricMean = 0;
     result = 1;
     
+    /* SECTION A ALGORITHM - use numSequence instead of currElement to store user input
+     
     while (count <= lengthOfSequence) {
         cin>>numSequence;
         result *= numSequence;
         geometricMean = pow(result, 1/lengthOfSequence);
         count++;
     }
-    
-    cout<<"The geometric mean is: "<<geometricMean<<endl;
+     
+    */
     
     cout<<"section b"<<endl;
+    
+    seenEndOfSeq = false;
+    
+    // If user inputs -1, the while loop will break and output the geometric mean
+    while (seenEndOfSeq == false) {
+        // Store user input
+        cin>>currElement;
+        if (currElement == -1)
+            seenEndOfSeq = true; // Break loop
+        else {
+            // Elements will multiply each other after each successive loop
+            result *= currElement;
+            // The result will be raised to the 1/n-th power to find the geometric mean
+            geometricMean = pow(result, 1/lengthOfSequence);
+            // Counter will keep track of loop iteration
+            count++;
+        }
+    }
+    
+    // Output to user
+    cout<<"The geometric mean is: "<<geometricMean<<endl;
     
     return 0;
 }
