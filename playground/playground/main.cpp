@@ -7,13 +7,14 @@
 //
 
 #include <iostream>
-#include <string>
+#include <cmath>
 
 using namespace std;
 
 int main() {
     
-    cout<<std::string(4, '!')<<endl;
+    
+    cout<<2*2*2*2*2*2<<endl;
     
     return 0;
 }
