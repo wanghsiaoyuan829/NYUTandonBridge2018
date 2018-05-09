@@ -7,49 +7,20 @@
 //
 
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+
 using namespace std;
 
 int main() {
-    int n;
-    int line, count;
     
-    cout<<"Please enter a positive integer:"<<endl;
-    cin>>n;
+    int correctNum;
     
-    cout<<"Printing a square:"<<endl;
-    for (line = 1; line <= n; line++) {
-        //1. print n stars
-        for (count = 1; count <= n; count++) {
-            cout<<"*";
-        }
-        //2. break the line
-        cout<<endl;
-    }
+    srand(time(0));
     
-    cout<<endl;
-    cout<<"Printing a right triangle aligned to the left"<<endl;
-    for (line = 1; line <= n; line++) {
-        //1. print line stars
-        for (count = 1; count <= line; count++) {
-            cout<<"*";
-        }
-        //2. break the line
-        cout<<endl;
-    }
+    correctNum = rand() % 100 + 1;
     
-    cout<<endl;
-    cout<<"Printing a right triangle aligned to the right"<<endl;
-    for (line = 1; line <= n; line++) {
-        //1. print n-line spaces
-        for (count = 1; count <= (n-line); count++) {
-            cout<<" ";
-        }
-        //2. print line stars
-        for (count = 1; count <= line; count++) {
-            cout<<"*";
-        }
-        //3. break the line
-        cout<<endl;
-    }
+    cout<<correctNum<<endl;
+    
     return 0;
 }
