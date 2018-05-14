@@ -33,7 +33,7 @@ int main() {
     
     int row;
     int column;
-    int integer = 10;
+    int integer;
     
     cout<<"Please enter a positive integer:"<<endl;
     cin>>integer;

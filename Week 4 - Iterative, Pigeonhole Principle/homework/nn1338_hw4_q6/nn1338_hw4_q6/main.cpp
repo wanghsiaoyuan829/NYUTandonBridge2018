@@ -29,7 +29,7 @@ int main() {
     
     int evensCount, oddsCount;
     int i;
-    int number = 30, remainder;
+    int number, remainder;
     int original_number;
     bool loop;
     

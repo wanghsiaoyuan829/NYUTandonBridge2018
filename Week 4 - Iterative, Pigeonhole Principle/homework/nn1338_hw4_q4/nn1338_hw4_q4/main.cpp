@@ -54,7 +54,8 @@ int main() {
     cout<<"Please enter the length of the sequence: ";
     cin>>lengthOfSequence;
     
-    cout<<"Please enter your sequence:"<<endl;
+    cout<<"Please enter a non-empty sequence of positive integers, each one in a separate line. ";
+    cout<<"End your sequence by typing -1:"<<endl;
     
     count = 0;
     geometricMean = 0;

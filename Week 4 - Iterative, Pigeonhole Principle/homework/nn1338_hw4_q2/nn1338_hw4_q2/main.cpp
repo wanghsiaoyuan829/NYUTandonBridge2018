@@ -59,19 +59,19 @@ int main() {
     // Multiply the roman digits by the amount of times it is divisible by the user input value
     // Take the remainder of the input value to find the next series of roman digits.
     // 147 % 100 = 47. Since it already printed out a 'C', the next step is to find what else divides into 47.
-    romanDig = std::string(decNum/1000, 'M');
+    romanDig = string(decNum/1000, 'M');
     decNum %= 1000;
-    romanDig += std::string(decNum/500, 'D');
+    romanDig += string(decNum/500, 'D');
     decNum %= 500;
-    romanDig += std::string(decNum/100, 'C');
+    romanDig += string(decNum/100, 'C');
     decNum %= 100;
-    romanDig += std::string(decNum/50, 'L');
+    romanDig += string(decNum/50, 'L');
     decNum %= 50;
-    romanDig += std::string(decNum/10, 'X');
+    romanDig += string(decNum/10, 'X');
     decNum %= 10;
-    romanDig += std::string(decNum/5, 'V');
+    romanDig += string(decNum/5, 'V');
     decNum %= 5;
-    romanDig += std::string(decNum/1, 'I');
+    romanDig += string(decNum/1, 'I');
     
     cout<<originalDecNum<<" is "<<romanDig<<endl;
     

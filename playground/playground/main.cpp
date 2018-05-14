@@ -14,13 +14,14 @@ using namespace std;
 
 int main() {
     
-    int correctNum;
+    float price;
+    price = 10;
     
-    srand(time(0));
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(2);
     
-    correctNum = rand() % 100 + 1;
-    
-    cout<<correctNum<<endl;
+    cout << "The price is $" << 5/price << endl;
     
     return 0;
 }
