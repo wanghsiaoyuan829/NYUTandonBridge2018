@@ -27,3 +27,26 @@
     
     Sample space = set of possible outcomes
     Event = subset of the sample space
+    
+### Union Probability
+    p(E1 U E2) = p(E1) + p(E2) - p(E1 ∩ E2)
+
+### Assigning Probability
+    Probability distribution = the set of all outcomes of the sample space S
+        i. 0 <= p(s) <= 1 for each s in S
+        ii. sum of p(s) = 1
+        
+        e.g. Fair coin flipped p(H) = p(T) = 1/2
+        p(H) + p(T) = 1
+        
+### Conditional Probability
+    Definition: p(E|F) = p(E ∩ F) / p(F)
+    
+### Independence 
+    Definition: The events E and F are independent if and only if p(E∩F) = p(E)p(F)
+
+### Pairwise & Mutual Independence
+    Definition: p(Ei ∩ Ej) = p(Ei)p(Ej) 
+    
+    The events are mutually independent if 
+    p(Ei1 ∩ Ei2 ∩ . . . ∩ Eim ) = p(Ei1)p(Ei2) . . . p(Eim)
