@@ -40,12 +40,12 @@ double cos(double x, int n) {
 }
 
 // assume exp >= 0
-double power (double base, int exp) {
+double power (double base, int n) {
     double res;
     int count;
     
     res = 1;
-    for (count = 1; count <= exp; count++) {
+    for (count = 1; count <= n; count++) {
         res *= base;
     }
     return res;
