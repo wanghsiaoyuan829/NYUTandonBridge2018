@@ -15,68 +15,68 @@
  a. void printShiftedTriangle(int n, int m, char symbol)
  
  For example, if we call printShiftedTriangle(3, 4, `+`), the expected output is:
-   +
-  +++
+ +
+ +++
  +++++
  
  b. void printPineTree(int n, char symbol)
  It prints a sequence of n triangles of increasing sizes (the smallest triangle is a 2-line triangle), which form the shape of a pine tree. The triangles are filled with the symbol character.
  For example, if we call printPineTree(3, `#`), the expected output is:
-   #
-  ###
-   #
-  ###
+ #
+ ###
+ #
+ ###
  #####
-   #
-  ###
+ #
+ ###
  #####
-#######
-*/
+ #######
+ */
 
 /*
-#include <iostream>
-using namespace std;
-
-void printShiftedTriangle(int n, int m, char symbol);
-void printPineTree(int n, char symbol);
-
-int main() {
-    
-    int n, m;
-    char symbol;
-    
-    cout<<"Enter the number of lines: \n";
-    cin>>n;
-    
-    cout<<"Enter the number of spaces: \n";
-    cin>>m;
-    
-    cout<<"Enter the character symbol (+, #, @, *): \n";
-    cin>>symbol;
-    
-    
-//    printShiftedTriangle(n, m, symbol);
-    printPineTree(n, symbol);
-    
-    return 0;
-}
-
-void printShiftedTriangle(int n, int m, char symbol) {
-    int line, countChar, addSpace;
+ #include <iostream>
+ using namespace std;
  
-    for (line = 0; line < n; line++) {
-        for (countChar = 1; countChar <= m ; countChar++)
-            cout << " ";
-            for (addSpace = 1; addSpace < n - line; addSpace++) {
-                cout << " ";
-        }
-        for (countChar = 1; countChar <= (2 * line) + 1; countChar++)
-            cout<< symbol;
-        cout << endl;
-    }
-}
-
-*/
+ void printShiftedTriangle(int n, int m, char symbol);
+ void printPineTree(int n, char symbol);
+ 
+ int main() {
+ 
+ int n, m;
+ char symbol;
+ 
+ cout<<"Enter the number of lines: \n";
+ cin>>n;
+ 
+ cout<<"Enter the number of spaces: \n";
+ cin>>m;
+ 
+ cout<<"Enter the character symbol (+, #, @, *): \n";
+ cin>>symbol;
+ 
+ 
+ //    printShiftedTriangle(n, m, symbol);
+ printPineTree(n, symbol);
+ 
+ return 0;
+ }
+ 
+ void printShiftedTriangle(int n, int m, char symbol) {
+ int line, countChar, addSpace;
+ 
+ for (line = 0; line < n; line++) {
+ for (countChar = 1; countChar <= m ; countChar++)
+ cout << " ";
+ for (addSpace = 1; addSpace < n - line; addSpace++) {
+ cout << " ";
+ }
+ for (countChar = 1; countChar <= (2 * line) + 1; countChar++)
+ cout<< symbol;
+ cout << endl;
+ }
+ }
+ 
+ */
 
 #include <iostream>
 using namespace std;
@@ -101,9 +101,9 @@ using namespace std;
 // Use for section B for printedShiftedTriangle
 void printShiftedTriangle(int n, int m, char symbol) {
     int line, countChar, countSymbol;
-
+    
     countSymbol = 1;
-
+    
     for (line = 1; line <= n; line++) {
         // Print spaces if count is less than
         for (countChar = 1; countChar <= m; countChar++) {
@@ -113,10 +113,10 @@ void printShiftedTriangle(int n, int m, char symbol) {
         for (countChar = 1; countChar <= countSymbol; countChar++) {
             cout << symbol;
         }
-
+        
         m--;
         countSymbol += 2;
-
+        
         cout << endl;
     }
 }
@@ -127,7 +127,7 @@ void printPineTree(int n, char symbol) {
 }
 
 int main() {
-
+    
     int n, m;
     char symbol;
     
@@ -135,13 +135,13 @@ int main() {
     cin>>n;
     
     // Section A
-//    cout<<"Enter the number of spaces: ";
-//    cin>>m;
+    //    cout<<"Enter the number of spaces: ";
+    //    cin>>m;
     
     cout<<"Enter the character symbol (+, #, @, *): ";
     cin>>symbol;
     
-//    printShiftedTriangle(n, m, symbol);
+    //    printShiftedTriangle(n, m, symbol);
     printPineTree(n, symbol);
     
     return 0;
