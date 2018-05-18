@@ -26,14 +26,43 @@
 #include <iostream>
 using namespace std;
 
+// Fib function
+int fib(int n);
+
 int main() {
     
-    int num, fibonacci;
+    int n;
     
     cout<<"Please enter a positive integer: ";
-    cin>>num;
+    cin>>n;
     
-    cout<<fibonacci;
+    cout<<fib(n)<<endl;
     
     return 0;
+}
+
+// Fib function algorithm
+int fib(int n) {
+    
+    int fibSum, fib1, fib2;
+    
+    fib1 = 0;
+    fib2 = 1;
+    fibSum = 0;
+    
+    // Fibonacci series: every number after the first two (0 & 1)
+    // is the sum of the two preceding ones
+    // Loop ends at user input
+    for (int i = 0; i <= n; i++)
+        // fib(0) = 0, fib(1) = 1
+        if (i <= 1)
+            fibSum = i;
+        // Sum of two sequential preceding numbers
+        else {
+            fibSum = fib1 + fib2;
+            fib1 = fib2;
+            fib2 = fibSum;
+            // cout<<fibSum<<", is looping"<<endl;
+        }
+    return fibSum;
 }
