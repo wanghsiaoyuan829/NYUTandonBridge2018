@@ -44,14 +44,14 @@ void printDivisors(int num) {
     cout<<endl;
     
 //    0(sqrt(num)
-//    for (int i = 1; i <= sqrt(num); i++) {
-//        if(num % i == 0) {
-//            divisor = num / i;
-//            cout<<i<<" ";
-//            cout<<divisor<<" ";
-//        }
-//    }
-//    cout<<endl;
+    // for (int i = 1; i <= sqrt(num); i++) {
+    //     if(num % i == 0) {
+    //         divisor = num / i;
+    //         cout<<i<<" ";
+    //         cout<<divisor<<" ";
+    //     }
+    // }
+    // cout<<endl;
 
 }
 

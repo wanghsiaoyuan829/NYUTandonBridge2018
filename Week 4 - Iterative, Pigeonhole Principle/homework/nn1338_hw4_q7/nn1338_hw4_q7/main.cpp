@@ -33,14 +33,17 @@ int main() {
     
     int row;
     int column;
-    int integer;
+    int integer = 5;
     
-    cout<<"Please enter a positive integer:"<<endl;
-    cin>>integer;
+//    cout<<"Please enter a positive integer:"<<endl;
+//    cin>>integer;
     
     // Nested for loops for rows and inside rows is columns
     // Increment rows and columns until >= user input
     for (row = 0; row < integer; row++) {
+        if (row == 0) {
+            cout<<"Mon Tue Wed Thu Fri Sat Sun"<<endl;
+        }
         for (column = 0; column < integer; column++) {
             // \t is tab
             // Math formula for matrix multiplication table

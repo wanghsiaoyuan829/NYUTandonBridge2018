@@ -1,148 +1,68 @@
 //
 //  main.cpp
-//  nn1338_hw5_q2
+//  nn1338_hw5_q1
 //
 //  Created by NomNomNam on 5/17/18.
 //  Copyright © 2018 NamHNguyen NYU Tandon School of Engineering Bridge 2018 Program. All rights reserved.
 //
 
 /*
- Write a program that, prints a ‘pine tree’ consisting of triangles of increasing sizes, filled
- with a character (eg. ‘*’ or ’+’ or ‘$’ etc).
- Your program should interact with the user to read the number of triangles in the tree and the character filling the tree.
+ The Fibonacci numbers sequence, Fn, is defined as follows:
+ F0 is 1, F1 is 1,and Fn = Fn-1 +Fn-2   for n = 2,3,4,...
+ In other words, each number is the sum of the previous two numbers. The first 10 numbers in Fibonacci sequence are: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55
  
- Your implementation should include the following functions:
- a. void printShiftedTriangle(int n, int m, char symbol)
+ Note: Background of Fibonacci sequence: https://en.wikipedia.org/wiki/Fibonacci_number
+ 1. Write a function int fib(int n) that returns the n-th element of the Fibonacci
+ sequence.
+ 2. Write a program that prompts the user to enter a positive integer num, and then
+ prints the num’s elements in the Fibonacci sequence.
  
- For example, if we call printShiftedTriangle(3, 4, `+`), the expected output is:
- +
- +++
- +++++
- 
- b. void printPineTree(int n, char symbol)
- It prints a sequence of n triangles of increasing sizes (the smallest triangle is a 2-line triangle), which form the shape of a pine tree. The triangles are filled with the symbol character.
- For example, if we call printPineTree(3, `#`), the expected output is:
- #
- ###
- #
- ###
- #####
- #
- ###
- #####
- #######
- */
-
-/*
- #include <iostream>
- using namespace std;
- 
- void printShiftedTriangle(int n, int m, char symbol);
- void printPineTree(int n, char symbol);
- 
- int main() {
- 
- int n, m;
- char symbol;
- 
- cout<<"Enter the number of lines: \n";
- cin>>n;
- 
- cout<<"Enter the number of spaces: \n";
- cin>>m;
- 
- cout<<"Enter the character symbol (+, #, @, *): \n";
- cin>>symbol;
- 
- 
- //    printShiftedTriangle(n, m, symbol);
- printPineTree(n, symbol);
- 
- return 0;
- }
- 
- void printShiftedTriangle(int n, int m, char symbol) {
- int line, countChar, addSpace;
- 
- for (line = 0; line < n; line++) {
- for (countChar = 1; countChar <= m ; countChar++)
- cout << " ";
- for (addSpace = 1; addSpace < n - line; addSpace++) {
- cout << " ";
- }
- for (countChar = 1; countChar <= (2 * line) + 1; countChar++)
- cout<< symbol;
- cout << endl;
- }
- }
+ Your program should interact with the user exactly as it shows in the following example:
+ Please enter a positive integer: 7
+ 13
  
  */
 
 #include <iostream>
 using namespace std;
 
-// Use for section A for printShiftedTriangle
-// void printShiftedTriangle(int n, int m, char symbol) {
-//    int line, countChar, addSpace;
-//
-//    for (line = 0; line < n; line++) {
-//        for (countChar = 1; countChar <= m ; countChar++)
-//            cout << " ";
-//            for (addSpace = 1; addSpace < n - line; addSpace++) {
-//                cout << " ";
-//            }
-//        for (countChar = 1; countChar <= (2 * line) + 1; countChar++)
-//            cout<< symbol;
-//        cout << endl;
-//    }
-// }
-
-
-// Use for section B for printedShiftedTriangle
-void printShiftedTriangle(int n, int m, char symbol) {
-    int line, countChar, countSymbol;
-    
-    countSymbol = 1;
-    
-    for (line = 1; line <= n; line++) {
-        // Print spaces if count is less than
-        for (countChar = 1; countChar <= m; countChar++) {
-            cout << " ";
-        }
-        // print characters
-        for (countChar = 1; countChar <= countSymbol; countChar++) {
-            cout << symbol;
-        }
-        
-        m--;
-        countSymbol += 2;
-        
-        cout << endl;
-    }
-}
-
-void printPineTree(int n, char symbol) {
-    for (int triangle = 1; triangle <= n ; triangle++)
-        printShiftedTriangle(triangle + 1, n, symbol);
-}
+// Fib function
+int fib(int n);
 
 int main() {
     
-    int n, m;
-    char symbol;
+    int n;
     
-    cout<<"Enter the number of triangles: ";
+    cout<<"Please enter a positive integer: ";
     cin>>n;
     
-    // Section A
-    //    cout<<"Enter the number of spaces: ";
-    //    cin>>m;
-    
-    cout<<"Enter the character symbol (+, #, @, *): ";
-    cin>>symbol;
-    
-    //    printShiftedTriangle(n, m, symbol);
-    printPineTree(n, symbol);
+    cout<<fib(n)<<endl;
     
     return 0;
+}
+
+// Fib function algorithm
+int fib(int n) {
+    
+    int fibSum, fib1, fib2;
+    
+    fib1 = 0;
+    fib2 = 1;
+    fibSum = 0;
+    
+    // Fibonacci series: every number after the first two (0 & 1)
+    // is the sum of the two preceding ones
+    // Loop ends at user input
+    for (int i = 0; i <= n; i++)
+        // fib(0) = 0, fib(1) = 1
+        if (i <= 1)
+            fibSum = i;
+    // Sum of two sequential preceding numbers
+        else {
+            fibSum = fib1 + fib2;
+            fib1 = fib2;
+            fib2 = fibSum;
+            // cout<<fibSum<<", is looping"<<endl;
+        }
+    return fibSum;
 }

@@ -62,21 +62,57 @@ a. Implement a function:
 #include <iostream>
 using namespace std;
 
+
 int printMonthCalender(int numOfDays, int startingDay);
+//int checkLeapYear(int year);
+//void printYearCalender(int year, int startingDay);
 
 int main() {
+    
+    int numOfDays, startingDay;
+    
+    //cout<<"section a"<<endl;
+    cout<<"Please enter number of days in the month: ";
+    cin>>numOfDays;
+    
+    cout<<"Please enter the starting day of the month (e.g. 4 is the first Sunday of the calendar month): ";
+    cin>>startingDay;
+    
+    printMonthCalender(numOfDays, startingDay);
+    //cout<<"section b"<<endl;
+    
+    //cout<<"section c"<<endl;
+    
     return 0;
 }
 
 int printMonthCalender(int numOfDays, int startingDay) {
     
+    int lastDay;
+    int week, day;
+    // lastDay = 6 (Saturday)
+    // numOfDays = 31
+    // startingDay = 4 (Sunday)
+    
+    lastDay = numOfDays;
+    for (week = 1; week <= (numOfDays / 7); week++) {
+        for (day = 1; day <= (numOfDays / 7); day++) {
+            cout<<day<<'\t';
+        }
+        // New week line
+        cout<<endl;
+    }
+    return lastDay;
 }
 
 
-
-
-
-
-
-
-
+//int checkLeapYear(int year) {
+//    bool isLeapYear;
+//
+//
+//    return isLeapYear;
+//}
+//
+//void printYearCalender(int year, int startingDay) {
+//
+//}

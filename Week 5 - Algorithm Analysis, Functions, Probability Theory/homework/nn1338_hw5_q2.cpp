@@ -22,14 +22,14 @@
  b. void printPineTree(int n, char symbol)
  It prints a sequence of n triangles of increasing sizes (the smallest triangle is a 2-line triangle), which form the shape of a pine tree. The triangles are filled with the symbol character.
  For example, if we call printPineTree(3, `#`), the expected output is:
- #
- ###
- #
- ###
- #####
- #
- ###
- #####
+    #
+   ###
+    #
+   ###
+  #####
+    #
+   ###
+  #####
  #######
  */
 
