@@ -1,0 +1,40 @@
+Write your code here. 
+Make sure to upload your file.
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	int integer;
+	int line, count;
+
+	cout<<"Please enter a positive integer greater or equal to 2:\n";
+	cin>>integer;
+	
+	// Account for invalid input
+	if (integer < 2)
+		cout<<"Invalid input. Please enter a positive integer >= 2\n";
+	else { 
+		// Keep track of line count and after every line for loop iteration, there is a line break
+		for (line = 1; line <= integer; line++)
+			// The first and last line has all asterisks being printed
+			if (line == 1 || line = integer) {
+				for (count = 1; count <= integer; count++)
+					cout<<"*";
+			// Between the first and last line
+			} else {
+				for (count = 1; count <= integer; count++)
+					// The first and last column will print "*" 
+					if (count == 1 || count == integer)
+						cout<<"*";
+					else
+					// Between the first and last column will print "#"
+						cout<<"#";	
+			}
+			cout<<endl;
+	}
+	
+	return 0;
+}

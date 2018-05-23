@@ -1,0 +1,55 @@
+Write your code here. 
+Make sure to upload your file.
+
+#include <iostream>
+using namespace std;
+
+int main () {
+	
+	int sequenceNum;
+	int integers;
+	int lineCount;
+	int greatestLineCount;
+	int sum, numCount, avg;
+	int newGreatestAvg;
+	bool seenEndOfSequence;
+
+	seenEndOfSequence = false;
+	newGreatestAvg = 0;
+	
+	cout<<"How many sequences do you wish to enter?\n";
+	cin>>sequenceNum;
+	
+	cout<<"Please enter 5 lines, each with a non-empty sequence of positive integers. ";
+	cout<<"For each sequence, separate the elements by a space, and end it by typing -1:\n";
+	
+	for (lineCount = 0; lineCount <= sequenceNum; lineCount++)
+		
+		// Restore original value of sum and numCount 
+		sum = 0 
+		numCount = 0;
+		
+		while (seenEndOfSequence == false) {
+			cin<<integers;
+			if (integers == -1) {
+				seenEndOfSequence == true; // user input of -1 will end the while loop
+			} else
+				sum += integers;
+				numCount ++;
+			avg = sum/numCount; // Formula to take avg
+		}
+
+		cout<<endl;
+		
+		// If there is a greater avg, store it in the variable. 
+		if (avg > newGreatestAvg) {
+			newGreatestAvg = avg;
+			// Store the line count with the greatest avg
+			greatestLineCount = lineCount;
+		}
+			
+	cout<<"The sequence in line "<<greatestLineCount<<" has the greatest average"<<endl;
+
+
+	return 0; 
+}
