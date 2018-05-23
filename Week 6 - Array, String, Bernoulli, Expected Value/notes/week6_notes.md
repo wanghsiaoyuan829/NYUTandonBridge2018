@@ -12,7 +12,9 @@
 
 ### Array syntax 
 
-![Counting in Different Number System](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/Week%201%20-%20Fundamentals%20of%20System%20Hardware/Module%202/Note%20Images/base2.png)
+![Array Syntax 1](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/Week%206%20-%20Array%2C%20String%2C%20Bernoulli%2C%20Expected%20Value/notes/images/array_syntax1.png)
+
+![Array Syntax 2](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/Week%206%20-%20Array%2C%20String%2C%20Bernoulli%2C%20Expected%20Value/notes/images/array_syntax2.png)
 
 ### String syntax
-![Counting in Different Number System](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/Week%201%20-%20Fundamentals%20of%20System%20Hardware/Module%202/Note%20Images/base2.png)
+![String](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/Week%206%20-%20Array%2C%20String%2C%20Bernoulli%2C%20Expected%20Value/notes/images/strings.png)
