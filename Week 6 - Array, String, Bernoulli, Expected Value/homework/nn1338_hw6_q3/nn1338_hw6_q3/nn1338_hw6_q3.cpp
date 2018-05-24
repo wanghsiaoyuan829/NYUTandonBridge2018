@@ -109,8 +109,8 @@ int main() {
     int arr3[10] = {3, 6, 4, 1, 12};
     int arr3Size = 5;
     
-    reverseArray(arr1, arr1Size);
-    printArray(arr1, arr1Size);
+    reverseArray(arr2, arr1Size);
+    printArray(arr2, arr1Size);
     
 //    removeOdd(arr2, arr2Size);
 //    printArray(arr2, arr2Size);
@@ -123,14 +123,13 @@ int main() {
 }
 
 void reverseArray(int arr[], int arrSize) {
-    int i, n;
-    int j = arrSize;
+    int first, n;
+    int last = arrSize - 1;
     
-    for (i = 0; i < j; i++) {
-        n = arr[i];
-        arr[i] = arr[j];
-        arr[j] = n;
-        j--;
+    for (first = 0; first < (arrSize - 1) / 2; first++, last--) {
+        n = arr[first];
+        arr[first] = arr[last];
+        arr[last] = n;
     }
 }
 
