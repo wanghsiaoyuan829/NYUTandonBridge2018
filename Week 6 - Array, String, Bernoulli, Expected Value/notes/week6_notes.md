@@ -18,3 +18,12 @@
 
 ### String syntax
 ![String](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/Week%206%20-%20Array%2C%20String%2C%20Bernoulli%2C%20Expected%20Value/notes/images/strings.png)
+
+### Bernoulli Trials
+![Bernoulli Trials](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/Week%206%20-%20Array%2C%20String%2C%20Bernoulli%2C%20Expected%20Value/notes/images/strings.png)
+
+### Random Variables
+    Definition: Random variable assigns a real number to each possible outcome.
+        A random variable is a function from a sample space of an experiment. It's not a variable or random!
+
+
