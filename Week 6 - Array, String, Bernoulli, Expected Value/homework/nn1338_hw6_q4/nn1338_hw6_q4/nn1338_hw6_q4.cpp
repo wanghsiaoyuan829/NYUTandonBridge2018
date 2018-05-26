@@ -53,30 +53,66 @@
  
  */
 
-#include <iostream>
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+
 using namespace std;
 
+// Store user's actual pin in a constant variable array
 const int ACTUAL_PIN_NUM[5] = {1, 2, 3, 4, 5};
 
-int getUserResponse() {
-    return 0;
-}
-
-void assignRandomNumbersToDigits(int ACTUAL_PIN_NUM) {
-    int randNum = 0;
-}
-
-int outputRandomDigits() {
-    return 0;
-}
-
-bool pinIsMatched() {
-    bool flag = false;
-    
-    return flag;
-}
-
 int main() {
+
+    srand(time(0)); // Seed random num
+
+    string user_entered_PIN; // Store user's input of 5 digit passcode
+    
+    // Print an ordered element for Pin Array
+    int pinArrSize = 10;
+    int pinArr[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    
+    cout<<"PIN:\t";
+    for (int i = 0; i < pinArrSize; i++) {
+        cout<<pinArr[i]<<" ";
+    }
+    
+    cout<<endl;
+    
+    int rand_array[10];
+    
+    // Store randomized numbers in each element in the random array variable
+    for(int i = 0; i < 10; i++) {
+        rand_array[i] = rand() % 3 + 1;
+    }
+
+    // Print the randomized array to prevent shoulder surfing
+    cout<<"NUM:\t";
+    for (int i=0; i<10; i++)
+        cout << rand_array[i] << " ";
+    
+    cout <<endl;
+    
+    cout<<"Enter your 5 digit passcode: \n";
+    cin>>user_entered_PIN;
+    
+    // Initialize the bool variable
+    bool is_PIN_Matched = true;
+    
+    // Iterate through the user's input
+    for (int i = 0; i < user_entered_PIN.length(); i++) {
+        // Delete elements in the array with trailing and leading 0's
+        // Compare the user input elements to the randomized array but with the values of
+        // actual pin number
+        if( (user_entered_PIN[i] - '0') != rand_array[ACTUAL_PIN_NUM[i]])
+            is_PIN_Matched = false;
+    }
+    
+    
+    if (is_PIN_Matched == true)
+        cout<<"Your PIN is correct"<<endl;
+    else
+        cout<<"Your PIN is not correct"<<endl;
     
     return 0;
 }
