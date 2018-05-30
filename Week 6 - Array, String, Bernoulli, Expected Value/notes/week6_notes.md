@@ -16,6 +16,12 @@
 
 ![Array Syntax 2](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/Week%206%20-%20Array%2C%20String%2C%20Bernoulli%2C%20Expected%20Value/notes/images/array_syntax2.png)
 
+### Calling by value vs calling by reference
+    Calling by value makes a copy of the function value and passes that onto the caller function. The value can be changed within the function scope but does not change the values of the original value. 
+    ** Linear runtime (Theta X) + allocate space to make a copy of the data
+    Calling by reference allows access to the original data, thus any changes to the value also changes the value of the original data. 
+    ** Constant runtime (Theta 1)
+    
 ### String syntax
 ![String](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/Week%206%20-%20Array%2C%20String%2C%20Bernoulli%2C%20Expected%20Value/notes/images/strings.png)
 
