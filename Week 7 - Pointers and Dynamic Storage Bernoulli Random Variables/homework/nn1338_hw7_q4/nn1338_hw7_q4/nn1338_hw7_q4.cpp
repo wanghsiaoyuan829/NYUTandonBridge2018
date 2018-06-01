@@ -47,7 +47,7 @@ int main() {
     words = createWordsArray(sentence, outWordsArrSize);
     
     // Print out each value in the words variable
-    cout<<"Words array contain:\n";
+    cout<<"Words array of size "<<outWordsArrSize<<" contain:\n";
     for (int i = 0; i < outWordsArrSize; i++) {
         cout<<words[i]<<" ";
     }
