@@ -37,7 +37,47 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+const int ALPHABET_SIZE = 26;
+
+int main(){
+    string line;
+    
+    cout << "Please enter a line of text: \n";
+    getline(cin, line);
+    
+    int letterArr[26] = {0}; // 26 letters in the alphabet
+    int wordCount = 0; // Keep track of how many words there are in a sentence
+    
+    for(int i = 0; i < line.size(); i++) {
+        // Check if values in line are between lowercase and uppercase letters A to Z
+        // Check if punctuations and empty spaces are followed after a letter,
+        // then it is considered a word
+        // Increment word count
+        if ( ((line[i] >= 'A' && line[i] <= 'Z') || (line[i] >= 'a' && line[i] <= 'z'))
+            && (line[i + 1] == ' ' || line[i + 1] == ',' || line[i + 1] == '.'))
+            wordCount++;
+        // If upper case
+        // Increment letter count of that specific letter stored in the array
+        // Subtract the char value of 'A' to the line[i] char to get the proper count
+        if (line[i] >= 'A' && line[i] <= 'Z')
+            letterArr[line[i] - 'A']++;
+        // If lower case
+        if (line[i] >= 'a' && line[i] <= 'z')
+            letterArr[line[i] - 'a']++;
+    }
+    
+    // Print out word count to user
+    cout<<wordCount<<"\twords"<<endl;
+    
+    // Iterate over the letter array keeping track of the counts of each letter that appeared
+    for (int i = 0; i < ALPHABET_SIZE; i++){
+        // If letter array value count is higher than 1
+        if(letterArr[i] > 0)
+            // Print out value of letter array
+            // Cast int i to char. Print out char 'a' + i to get the actual char value that was
+            // higher than 1 letter count in the letter array
+            cout<<letterArr[i]<<"\t"<<(char)('a' + i)<<endl;
+    }
     
     return 0;
 }

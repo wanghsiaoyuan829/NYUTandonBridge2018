@@ -22,9 +22,62 @@
  */
 
 #include <iostream>
+#include <algorithm>
+#include <string>
+
 using namespace std;
+
+// read two string input
+// checkAnagram function
+// print out Anagram or no Anagram
+
+bool checkAnagram(string first, string second);
 
 int main() {
     
+    string first_string = "Eleven plus two", second_string = "Twelve plus one";
+    bool anagram;
+    
+    // cout<<"Enter first string\n";
+    // getline(cin, first_string);
+    
+    // cout<<"Enter second string\n";
+    // getline(cin, second_string);
+    
+    anagram = checkAnagram(first_string, second_string);
+    
+    if (anagram == true)
+        cout<<"The two strings are anagrams\n";
+    else
+        cout<<"The two strings are not anagrams\n";
+    
     return 0;
 }
+
+bool checkAnagram(string first, string second) {
+    bool anagram = false;
+    int i;
+    
+    // lowercase the strings
+    transform(first.begin(), first.end(), first.begin(), ::tolower);
+    transform(second.begin(), second.end(), second.begin(), ::tolower);
+    
+    // sort and store the strings in order
+    sort(first.begin(), first.end());
+    sort(second.begin(), second.end());
+    
+    // if the length of the first and second string are not equal, then anagram is false
+    if (first.length() != second.length())
+        anagram = false;
+    
+    
+    for (i = 0; i < first.length(); i++)
+        if (first[i] != second[i])
+            anagram = false;
+        else
+            anagram = true;
+    
+    return anagram;
+}
+
+

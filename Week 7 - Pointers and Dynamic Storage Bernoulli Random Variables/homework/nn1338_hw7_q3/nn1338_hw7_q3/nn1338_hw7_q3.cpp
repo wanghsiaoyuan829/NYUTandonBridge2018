@@ -29,7 +29,49 @@
 #include <iostream>
 using namespace std;
 
+void oddsKeepEvensFlip(int arr[], int arrSize);
+
 int main() {
     
+    // Test sample array
+    int arr[] = {5, 2, 11, 7, 6, 4};
+    
+    // Call void function
+    oddsKeepEvensFlip(arr, 6);
+    
+    // Print to user
+    cout<<"Odds Keep & Evens Flip:\n";
+    for (int i = 0; i < 6; i++) {
+        cout<<arr[i]<<" ";
+    }
+    
+    cout<<endl;
+    
     return 0;
+}
+
+void oddsKeepEvensFlip(int arr[], int arrSize) {
+    int* tempArr;
+    tempArr = new int[arrSize];
+    int i, index = 0;
+    
+    // If current element is odd, add odds into tempArr
+    for (i = 0; i < arrSize; i++)
+        if ((arr[i] % 2 == 1))
+            tempArr[index++] = arr[i];
+    
+    // Continue the chain of array after odds are added to array
+    // If curr element is even, add even elements in reverse order
+    for (i = arrSize; i >= 0; i--)
+        if (arr[i] % 2 == 0)
+            tempArr[index++] = arr[i];
+    
+    // Add values of tempArr back to arr
+    for (i = 0; i < arrSize; i++) {
+        arr[i] = tempArr[i];
+    }
+    
+    // Free memory allocation
+    delete [] tempArr;
+    tempArr = arr;
 }
