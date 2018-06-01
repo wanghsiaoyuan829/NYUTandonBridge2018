@@ -27,10 +27,67 @@
  */
 
 #include <iostream>
+
 using namespace std;
+
+string* createWordsArray(string sentence, int& outWordsArrSize);
 
 int main() {
     
+    // Initialize variables
+    string sentence;
+    string* words; // word pointer
+    int outWordsArrSize = 0;
+    
+    // Print to user and store user input in sentence
+    cout<<"Please enter a sentence:\n";
+    getline(cin, sentence);
+    
+    // Store the return value of the function createWordsArray in words variable
+    words = createWordsArray(sentence, outWordsArrSize);
+    
+    // Print out each value in the words variable
+    cout<<"Words array contain:\n";
+    for (int i = 0; i < outWordsArrSize; i++) {
+        cout<<words[i]<<" ";
+    }
+    
+    cout<<endl;
+    
     return 0;
+}
+
+// Store a string of sentence in a new array
+// Intput: string sentence and logic array size
+// Output: new array
+string* createWordsArray(string sentence, int& outWordsArrSize) {
+    
+    // Iterating over sentence string to find spaces. Each space = one word.
+    // Increment outWordsArrSize
+    for (int i = 0; i < sentence.length(); i++) {
+        if (sentence[i] == ' ')
+            outWordsArrSize++;
+    }
+    
+    // Since outwords size starts at 0, add 1 to get the real size value
+     outWordsArrSize++;
+    
+    // Dynamically create word array based on outWordsArrSize
+    string* words = new string[outWordsArrSize];
+    int wordCounter = 0;
+    
+    for (int i = 0; i < sentence.length(); i++) {
+        // Check for spaces. If there are spaces, increment wordCounter
+        if (sentence[i] == ' ') {
+            wordCounter++;
+            i++;
+        }
+        // Sentence characters are added one by one into words indices until a space
+        // is encountered, then wordCounter increments by one thus increasing the index by one
+        // This logic stores one word in an index of the words array
+        words[wordCounter] += sentence[i];
+    }
+    
+    return words;
 }
 
