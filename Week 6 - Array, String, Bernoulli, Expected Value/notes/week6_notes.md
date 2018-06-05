@@ -21,7 +21,8 @@
     ** Linear runtime (Theta X) + allocate space to make a copy of the data
     Calling by reference allows access to the original data, thus any changes to the value also changes the value of the original data. 
     ** Constant runtime (Theta 1)
-    
+
+    int arr[] = base address of an array of integers
 ### String syntax
 ![String](https://github.com/Nam-H-Nguyen/NYUTandonBridge2018/blob/master/Week%206%20-%20Array%2C%20String%2C%20Bernoulli%2C%20Expected%20Value/notes/images/strings.png)
 

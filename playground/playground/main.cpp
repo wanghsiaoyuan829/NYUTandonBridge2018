@@ -1,46 +1,67 @@
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
 
 using namespace std;
 
-const int ACTUAL_PIN_NUM[5] = {1, 2, 3, 4, 5};
+int* findMissing(int arr[], int n, int& resArrSize);
 
 int main() {
-    srand(time(0));
-    int randNum;
-    int numArrSize = 10;
-    int numArr[10];
-    int pinArrSize = 10;
-    int pinArr[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-    int enteredNum;
-    int enteredArrSize = 5;
-    int enteredNumArr[5];
+    // Use fixed variables to test function
+    int arr[] = {3, 1, 3, 0, 6, 4};
+    int resArrSize;
     
-    //
-    cout<<"PIN:\t";
-    for (int i = 0; i < pinArrSize; i++) {
-        cout<<pinArr[i]<<" ";
-    }
+    // Calling function findMissing and storing the return base value of the
+    // resArray to the new missingNumArray variable
+    int* missingNumArray = findMissing(arr, 6, resArrSize);
+    
+    // Iterate missingNumArray up to new resArrSize
+    // Print to user the elements in the array
+    for(int i=0; i<resArrSize; i++)
+        cout<<missingNumArray[i]<<" ";
     
     cout<<endl;
     
-    cout<<"NUM:\t";
-    for (int i = 0; i < numArrSize; i++) {
-        randNum = ((rand() % 3) + 1);
-        numArr[i] = randNum;
-        cout<<numArr[i]<<" ";
+    return 0;
+}
+
+int* findMissing(int arr[], int n, int& resArrSize) {
+    
+    resArrSize = n; // Store current resArrSize to original n size elements
+    // Initialize new dynamic arrays
+    int* tempArr = new int[n];
+    int* resArray = new int[resArrSize];
+    
+    // tempArr = [1, 2, 3, 4, 5, 6]
+    for(int i = 0; i < n; i++) {
+        tempArr[i] = i + 1;
     }
     
-    cout<<"Enter the 5 digit NUM separated by a space corresponding to your PIN number: ";
-    for (int i = 0; i < enteredArrSize; i++) {
-        cin>>enteredNum;
-        enteredNumArr[i] = enteredNum;
+    // Implement finding n + 1 missing num logic
+    for(int i = 0; i < n; i++) {
+        if(tempArr[arr[i] - 1] == arr[i]) {
+            // Set tempArr elements to -1
+            tempArr[arr[i] - 1] = -1;
+            // Resize resArrSize subtracted from n size based on missing num elements
+            resArrSize--;
+        }
     }
     
-    for (int i = 0; i < enteredArrSize; i++) {
-        cout<<enteredNumArr[i];
+    int missingNumCounter = 0;
+    
+    for(int i = 0; i < n; i++) {
+        // iterate through the new tempArr elements and find which one
+        // is greater than 0
+        if(tempArr[i] > 0) {
+            // store tempArr to the resArray
+            // Increment the missingNumCounter based on how many elements
+            // is in tempArr
+            resArray[missingNumCounter] = tempArr[i];
+            missingNumCounter++;
+        }
     }
     
-    cout<<endl;
+    // Update new resArrSize based on the counter of missing nums (n + 1)
+    resArrSize = missingNumCounter;
+    
+    // Return base value of array
+    return resArray;
 }

@@ -46,15 +46,20 @@ string* main1(int& outLinesArrSize);
 vector<string> main2();
 
 int main () {
+    
+    // Initialize variables
     string* linesArr;
     int linesArrSize;
     vector<string> linesVector;
     
-    linesArr = main1(linesArrSize);
+    // Call functions
+    //linesArr = main1(linesArrSize);
     linesVector = main2();
     
     string searchNum;
     
+    /*
+    // Print to user
     cout<<"Please enter a number you want to search.\n";
     cin>>searchNum;
     
@@ -63,10 +68,17 @@ int main () {
     
     for (int i = 0; i < linesArrSize; i++) {
         if (linesArr[i] == searchNum)
-            cout<<i + 1<<" ";
+            // print line number if element contains the searchNum
+            cout<<i + 1<<", ";
+        else
+            cout<<"..";
     }
     
     cout<<endl;
+    */
+    
+    cout<<"Please enter a number you want to search.\n";
+    cin>>searchNum;
     
     cout<<"Version B:\n"
         <<searchNum<<" shows in lines ";
@@ -74,6 +86,8 @@ int main () {
     for (int i = 0; i < linesVector.size(); i++) {
         if (linesVector[i] == searchNum)
             cout<<i + 1<<" ";
+        else
+            cout<<"..";
     }
     
     cout<<endl;
