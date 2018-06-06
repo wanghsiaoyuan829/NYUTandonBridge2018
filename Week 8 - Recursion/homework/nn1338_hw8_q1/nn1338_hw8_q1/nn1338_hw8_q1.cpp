@@ -78,30 +78,39 @@ int main() {
 void printTriangle(int n) {
     int currLine = 1;
     
+    // Base case: if current line is equal to n
+    // print one asterisk
     if (currLine == n)
         cout<<"*"<<endl;
+    // Else call recursive function and decrease n until current line is equal to n
     else {
         printTriangle(n - 1);
+        // print right triangle
         for (int i = 0; i < n; i++)
+            // print concatenated asterisks
             cout<<"*";
         cout<<endl;
     }
 }
 
 void printOpositeTriangles(int n) {
-    int baseLine = 1;
+    int currLine = 1;
     
-    if (baseLine == n) {
+    // Base case: if current line is equal to n
+    // print two new line asterisks
+    if (currLine == n) {
         cout<<"*"<<endl;
         cout<<"*"<<endl;
     }
     else {
+        // print opposite triangle
         for (int i = 0; i < n; i++)
             cout<<"*";
         cout<<endl;
         
         printOpositeTriangles(n-1);
         
+        // print right triangle
         for (int i = 0; i < n; i++)
             cout<<"*";
         cout<<endl;
@@ -109,15 +118,16 @@ void printOpositeTriangles(int n) {
 }
 
 void printRuler(int n) {
-
     if (n > 1)
         printRuler(n - 1);
+    
+    // Print new line if n is 1 or less
     cout<<endl;
     
+    // Prints "-" based on how many recursive function call is made and value of n
     for (int i = 0; i < n; i++)
         cout<<"-";
     
     if (n > 1)
         printRuler(n - 1);
-    
 }

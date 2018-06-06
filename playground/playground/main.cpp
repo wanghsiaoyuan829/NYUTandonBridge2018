@@ -1,67 +1,58 @@
 #include <iostream>
-
 using namespace std;
 
-int* findMissing(int arr[], int n, int& resArrSize);
+int jumpIt(int gameBoardArr[], int gameBoardArrSize, int n);
 
 int main() {
-    // Use fixed variables to test function
-    int arr[] = {3, 1, 3, 0, 6, 4};
-    int resArrSize;
+    int lowCostJump1;
+    int gameBoardArr1[] = {0, 3, 80, 6, 57, 10};
+    int gameBoardArr1Size = 6;
     
-    // Calling function findMissing and storing the return base value of the
-    // resArray to the new missingNumArray variable
-    int* missingNumArray = findMissing(arr, 6, resArrSize);
+    int lowCostJump2;
+    int gameBoardArr2[] = {0, 10, 90, 5, 1, 50, 7};
+    int gameBoardArr2Size = 7;
     
-    // Iterate missingNumArray up to new resArrSize
-    // Print to user the elements in the array
-    for(int i=0; i<resArrSize; i++)
-        cout<<missingNumArray[i]<<" ";
+    int n = 0;
+    
+    for (int i = 0; i < gameBoardArr1Size; i++) {
+        cout<<gameBoardArr1[i]<<" ";
+    }
     
     cout<<endl;
+    
+    // Expected output: 19
+    lowCostJump1 = jumpIt(gameBoardArr1, gameBoardArr1Size - 1, n);
+    cout<<"Lowest cost by jumping through adjacent elements in the board is: "<<lowCostJump1<<endl;
+    
+    for (int i = 0; i < gameBoardArr2Size; i++) {
+        cout<<gameBoardArr2[i]<<" ";
+    }
+    
+    cout<<endl;
+    
+    // Expected output: 22
+    lowCostJump2 = jumpIt(gameBoardArr2, gameBoardArr2Size - 1, n);
+    cout<<"Lowest cost by jumping through adjacent elements in the board is: "<<lowCostJump2<<endl;
     
     return 0;
 }
 
-int* findMissing(int arr[], int n, int& resArrSize) {
-    
-    resArrSize = n; // Store current resArrSize to original n size elements
-    // Initialize new dynamic arrays
-    int* tempArr = new int[n];
-    int* resArray = new int[resArrSize];
-    
-    // tempArr = [1, 2, 3, 4, 5, 6]
-    for(int i = 0; i < n; i++) {
-        tempArr[i] = i + 1;
-    }
-    
-    // Implement finding n + 1 missing num logic
-    for(int i = 0; i < n; i++) {
-        if(tempArr[arr[i] - 1] == arr[i]) {
-            // Set tempArr elements to -1
-            tempArr[arr[i] - 1] = -1;
-            // Resize resArrSize subtracted from n size based on missing num elements
-            resArrSize--;
-        }
-    }
-    
-    int missingNumCounter = 0;
-    
-    for(int i = 0; i < n; i++) {
-        // iterate through the new tempArr elements and find which one
-        // is greater than 0
-        if(tempArr[i] > 0) {
-            // store tempArr to the resArray
-            // Increment the missingNumCounter based on how many elements
-            // is in tempArr
-            resArray[missingNumCounter] = tempArr[i];
-            missingNumCounter++;
-        }
-    }
-    
-    // Update new resArrSize based on the counter of missing nums (n + 1)
-    resArrSize = missingNumCounter;
-    
-    // Return base value of array
-    return resArray;
+// Input: game board array, array size, and index position to compare elements
+// Output: return the lowest cost value by jumping through adjacent elements in the array
+int jumpIt(int gameBoardArr[], int gameBoardArrSize, int n) {
+    // Base case #1: if current index position is equal to gameBoardArrSize
+    if (n == gameBoardArrSize) {
+        return gameBoardArr[n];
+    // Base case #2: if there are only the first and last element in the array
+    // return the sum of the first element and the last element
+    } else if (n == gameBoardArrSize - 1) {
+        return (gameBoardArr[0] + gameBoardArr[gameBoardArrSize]);
+    // Recursive function: if the previous element is less than the next element
+    // return the sum of the current index to the value of the next element
+    } else if (jumpIt(gameBoardArr, gameBoardArrSize, n + 1) < jumpIt(gameBoardArr, gameBoardArrSize, n + 2))
+        return (gameBoardArr[n] + jumpIt(gameBoardArr, gameBoardArrSize, n + 1));
+    // Recursive function: else the previous element is NOT less than the next element
+    // Jump two indexes and add the value of that index to the current value of the current element
+    else
+        return (gameBoardArr[n] + jumpIt(gameBoardArr, gameBoardArrSize, n + 2));
 }
