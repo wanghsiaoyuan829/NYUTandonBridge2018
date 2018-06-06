@@ -22,9 +22,34 @@
  */
 
 #include <iostream>
+#include <cmath>
+
 using namespace std;
 
+int sumOfSquares(int arr[], int arrSize);
+bool isSorted(int arr[], int arrSize);
+
 int main() {
+    int arr[] = {2, -1, 3, 10};
+    int arrSize = 4;
+    
+    // Initialize the sum to be the return value of the function call
+    int sum = sumOfSquares(arr, arrSize);
+    
+    // Print out to user the sum of squares
+    cout<<"The sum of squares is: "<<sum<<endl;
     
     return 0;
+}
+
+int sumOfSquares(int arr[], int arrSize) {
+    // Base case: if arrSize is 0 or the first element of the array
+    if (arr[arrSize] == arr[0]) {
+        // exit
+        return 0;
+    }
+    else {
+        int resultPower = pow(arr[arrSize - 1], 2);
+        return (sumOfSquares(arr, arrSize - 1) + resultPower);
+    }
 }

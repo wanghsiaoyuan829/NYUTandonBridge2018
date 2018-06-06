@@ -68,7 +68,7 @@ int main() {
     printOpositeTriangles(4);
     cout<<endl;
     
-    cout<<"Section C\n";
+    cout<<"Section C";
     printRuler(4);
     cout<<endl;
     
