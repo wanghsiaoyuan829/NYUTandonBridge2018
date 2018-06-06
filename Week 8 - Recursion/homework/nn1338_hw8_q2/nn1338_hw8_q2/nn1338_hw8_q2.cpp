@@ -31,6 +31,9 @@ bool isSorted(int arr[], int arrSize);
 
 int main() {
     int arr[] = {2, -1, 3, 10};
+    // Use to test isSorted function
+    int trueBoolArr[4] = {1, 2, 3, 4};
+    int trueBoolArr2[4] = {2, 5, 8, 100};
     int arrSize = 4;
     
     // Initialize the sum to be the return value of the function call
@@ -38,6 +41,11 @@ int main() {
     
     // Print out to user the sum of squares
     cout<<"The sum of squares is: "<<sum<<endl;
+    
+    if (isSorted(arr, arrSize) == true)
+        cout<<"All nums in the array are sorted\n";
+    else
+        cout<<"The nums in the array are NOT sorted\n";
     
     return 0;
 }
@@ -50,6 +58,27 @@ int sumOfSquares(int arr[], int arrSize) {
     }
     else {
         int resultPower = pow(arr[arrSize - 1], 2);
+        
+        // Recursive function
+        // Function returns 0 but adding resultPower will give it the sum of the square
         return (sumOfSquares(arr, arrSize - 1) + resultPower);
+    }
+}
+
+bool isSorted(int arr[], int arrSize) {
+    
+    // Base Case:
+    // 0 and 1 elements are considered already sorted
+    if (arrSize == 0 || arrSize == 1)
+        return true;
+    else {
+        // if the latter element is less than the former element in the array
+        // it is considered NOT sorted, return false
+        if (arr[arrSize - 1] < arr[arrSize - 2])
+            return false;
+        // Else call recursive function to decrease arrSize
+        else
+            return isSorted(arr, arrSize - 1);
+        
     }
 }
