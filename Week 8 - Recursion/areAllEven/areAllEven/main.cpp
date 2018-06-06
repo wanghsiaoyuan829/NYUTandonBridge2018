@@ -30,7 +30,7 @@ bool areAllEven(int arr[], int n) {
     else {
         res = areAllEven(arr, n-1);
         if (res == true)
-            return (arr[n-1] % 2 == 0);
+            return (arr[n - 1] % 2 == 0);
         else
             return false;
     }
