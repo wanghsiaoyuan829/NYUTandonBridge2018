@@ -136,7 +136,7 @@ int* getPosNums3(int* arr, int arrSize, int* outPosArrSizePtr) {
             outPosArr[j++] = arr[i];
         }
     }
-    
+
     // returns the base address of the array (containing the positive numbers)
     return outPosArr;
 }

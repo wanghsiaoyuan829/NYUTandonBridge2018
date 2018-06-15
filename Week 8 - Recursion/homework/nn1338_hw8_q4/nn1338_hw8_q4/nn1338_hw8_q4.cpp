@@ -36,37 +36,22 @@ using namespace std;
 int jumpIt(int gameBoardArr[], int gameBoardArrSize, int n);
 
 int main() {
-    int lowCostJump1;
-    int gameBoardArr1[] = {0, 3, 80, 6, 57, 10};
-    int gameBoardArr1Size = 6;
-    
-    int lowCostJump2;
-    int gameBoardArr2[] = {0, 10, 90, 5, 1, 50, 7};
-    int gameBoardArr2Size = 7;
+    int lowCostJump;
+    int gameBoardArr[] = {0, 3, 80, 6, 57, 10};
+    int gameBoardArrSize = 6;
     
     int n = 0;
     
-    for (int i = 0; i < gameBoardArr1Size; i++) {
-        cout<<gameBoardArr1[i]<<" ";
+    for (int i = 0; i < gameBoardArrSize; i++) {
+        cout<<gameBoardArr[i]<<" ";
     }
     
     cout<<endl;
     
     // Expected output: 19
     // 3 + 6 + 10
-    lowCostJump1 = jumpIt(gameBoardArr1, gameBoardArr1Size - 1, n);
-    cout<<"Lowest cost by jumping through 1 or 2 adjacent elements in the board is: "<<lowCostJump1<<endl;
-    
-    for (int i = 0; i < gameBoardArr2Size; i++) {
-        cout<<gameBoardArr2[i]<<" ";
-    }
-    
-    cout<<endl;
-    
-    // Expected output: 22
-    // 10 + 5 + 7
-    lowCostJump2 = jumpIt(gameBoardArr2, gameBoardArr2Size - 1, n);
-    cout<<"Lowest cost by jumping through 1 or 2 adjacent elements in the board is: "<<lowCostJump2<<endl;
+    lowCostJump = jumpIt(gameBoardArr, gameBoardArrSize - 1, n);
+    cout<<"Jump board lowest cost is: "<<lowCostJump<<endl;
     
     return 0;
 }

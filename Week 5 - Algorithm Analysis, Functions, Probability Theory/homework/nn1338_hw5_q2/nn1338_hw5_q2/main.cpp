@@ -134,14 +134,14 @@ int main() {
     cout<<"Enter the number of triangles: ";
     cin>>n;
     
-    // Section A
-//    cout<<"Enter the number of spaces: ";
-//    cin>>m;
+    //Section A
+    cout<<"Enter the number of spaces: ";
+    cin>>m;
     
     cout<<"Enter the character symbol (+, #, @, *): ";
     cin>>symbol;
     
-//    printShiftedTriangle(n, m, symbol);
+    printShiftedTriangle(n, m, symbol);
     printPineTree(n, symbol);
     
     return 0;

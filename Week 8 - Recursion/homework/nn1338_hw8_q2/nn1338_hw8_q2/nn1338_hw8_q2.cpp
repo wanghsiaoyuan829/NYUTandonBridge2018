@@ -31,9 +31,6 @@ bool isSorted(int arr[], int arrSize);
 
 int main() {
     int arr[] = {2, -1, 3, 10};
-    // Use to test isSorted function
-    int trueBoolArr[4] = {1, 2, 3, 4};
-    int trueBoolArr2[4] = {2, 5, 8, 100};
     int arrSize = 4;
     
     // Initialize the sum to be the return value of the function call
