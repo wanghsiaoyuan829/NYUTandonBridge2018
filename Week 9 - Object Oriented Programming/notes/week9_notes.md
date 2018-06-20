@@ -89,4 +89,8 @@
     Pure virtual function: 'virtual void speak() const =0' 
         Marked with a '=0'
     Use Case: if base class should contain a function, but it does not know what the function would actually do, it can be marked as a pure virtual function
-    Problem: 
+
+### Webinar
+    Copy data not copy pointers. 
+    When creating memory in the constructor, we need to destroy data that falls out of scope
+        Destructor - 
