@@ -33,11 +33,21 @@
 */
 
 #include <iostream>
+using namespace std;
 
+// Initialize the world with 5 doodlebugs and 100 ants
+const int DOODLEBUGS_WORLD = 5;
+const int ANTS_WORLD = 100;
+
+// Critters live in a world composed of a 20 × 20 grid of cells
+const int WORLD_SIZE = 20;
+
+class Organism {
+    
+}
 // Create a 2D predator-prey simulation of the world using ASCII characters: "o" for ant, "X" for doodlebug, "-" for empty space
 // Create a class named Organism that encapsulates basic data common to both ants and doodlebugs
 // Virtual function named 'move' that is defined in the derived classes of Ant and Doodlebug
-// Initialize the world with 5 doodlebugs and 100 ants
 // After each time step, prompt the user to press Enter to move to the next time step
 
 // Only one critter may occupy a cell at a time.
