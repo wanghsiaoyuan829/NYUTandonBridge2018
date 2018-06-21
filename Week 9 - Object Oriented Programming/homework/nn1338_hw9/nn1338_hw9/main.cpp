@@ -44,7 +44,7 @@ const int WORLD_SIZE = 20;
 
 class Organism {
     
-}
+};
 // Create a 2D predator-prey simulation of the world using ASCII characters: "o" for ant, "X" for doodlebug, "-" for empty space
 // Create a class named Organism that encapsulates basic data common to both ants and doodlebugs
 // Virtual function named 'move' that is defined in the derived classes of Ant and Doodlebug
