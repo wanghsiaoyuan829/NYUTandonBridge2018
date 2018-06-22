@@ -93,4 +93,50 @@
 ### Webinar
     Copy data not copy pointers. 
     When creating memory in the constructor, we need to destroy data that falls out of scope
-        Destructor - 
+
+____
+
+# Reading Notes
+
+    Object: is a variable that has member functions
+    Class: is a data type whose variables are objects. Thus, the definition of a class should be a data type definition that describes two things: (1) what kinds of values the variables can hold and (2) what the member functions are
+    
+### Struct
+    Definition - can be thought of as an object without any member functions
+    
+    ```
+    struct CDAccount {
+    double balance;
+    double interest_rate;
+    int term; //months until maturity
+    };
+    ```
+    
+    A structure value is a collection of smaller values called member values. There is one member value for each member name declared in the structure definition. For example, a value of the type CDAccount is a collection of three member values: two of type double and one of type int. The member values that together make up the structure value are stored in member variables
+    
+    CDAccount my_account, your_account, account;
+    my_account, account, your_account = structure variables
+    balance, interest_rate, and term = member variables
+    
+    Can be assigned like normal variables
+    account.balance = 1000.00;
+    account.interest_rate = 4.7;
+    account.term = 11;
+    
+    You specify a member variable for a structure variable by using the dot operator in the same way you used it in Chapter 6, where the dot operator was used to specify a member function of a class. The only difference is that in the case of structures, the members are variables rather than functions.
+    
+    Two or more structure types may use the same member names
+    ```
+    struct FertilizerStock {
+        double quantity;
+        double nitrogen_content; };
+    struct CropYield {
+        int quantity;
+        double size; };
+    ```
+    
+    FertilizerStock super_grow;
+    CropYield apples;
+    
+    The two similar member names will produce no problems. 
+    Quantity of super_grow fertilizer is stored in the member variable super_grow.quantity and the quantity of apples produced is stored in the member variable apples.quantity
